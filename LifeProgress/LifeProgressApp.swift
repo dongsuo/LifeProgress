@@ -2,7 +2,7 @@
 //  LifeProgressApp.swift
 //  LifeProgress
 //
-//  Created by ByteDance on 1/3/25.
+//  Created by Shaw on 1/3/25.
 //
 
 import SwiftUI
