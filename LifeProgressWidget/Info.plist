@@ -7,5 +7,17 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widgetkit-extension</string>
 	</dict>
+	<key>NSExtensionPrincipalClass</key>
+	<string>$(PRODUCT_MODULE_NAME).LifeProgressWidgetControl</string>
+	<key>NSExtensionAttributes</key>
+	<dict>
+		<key>IntentSupportedConfigurations</key>
+		<array>
+			<dict>
+				<key>IntentClassName</key>
+				<string>LifeProgressWidget.ConfigurationAppIntent</string>
+			</dict>
+		</array>
+	</dict>
 </dict>
 </plist>

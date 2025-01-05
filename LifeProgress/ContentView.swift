@@ -63,6 +63,12 @@ struct ContentView: View {
             }
 //            .navigationBarTitleDisplayMode(.automatic)
             .onAppear {
+                if NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge") == 0 {
+                    NSUbiquitousKeyValueStore.default.set(80, forKey: "expectedAge")
+                }
+                if NSUbiquitousKeyValueStore.default.double(forKey: "birthday") == 0 {
+                    NSUbiquitousKeyValueStore.default.set(Date(timeIntervalSince1970: 946684800).timeIntervalSince1970, forKey: "birthday")
+                }
                 NSUbiquitousKeyValueStore.default.synchronize()
             }
         }

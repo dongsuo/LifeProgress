@@ -51,11 +51,16 @@ public struct YearProgressView: View {
             }
         }
         .onAppear {
-            let defaults = UserDefaults(suiteName: "group.com.v2free.life_progress")
-            expectedAge = defaults?.integer(forKey: "expectedAge") ?? 80
-            birthday = Date(timeIntervalSince1970: defaults?.double(forKey: "birthday") ?? 0)
-            if expectedAge == 0 {
+            let store = NSUbiquitousKeyValueStore.default
+            if store.longLong(forKey: "expectedAge") == 0 {
                 expectedAge = 80
+            } else {
+                expectedAge = Int(store.longLong(forKey: "expectedAge")) as Int
+            }
+            if store.double(forKey: "birthday") == 0 {
+                birthday = Date(timeIntervalSince1970: 946684800)
+            } else {
+                birthday = Date(timeIntervalSince1970: store.double(forKey: "birthday"))
             }
         }
     }

@@ -37,8 +37,17 @@ public struct WeekProgressView: View {
             }
         }
         .onAppear {
-            expectedAge = Int(NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge"))
-            birthday = Date(timeIntervalSince1970: NSUbiquitousKeyValueStore.default.double(forKey: "birthday"))
+            let store = NSUbiquitousKeyValueStore.default
+            if store.longLong(forKey: "expectedAge") == 0 {
+                expectedAge = 80
+            } else {
+                expectedAge = Int(store.longLong(forKey: "expectedAge")) as Int
+            }
+            if store.double(forKey: "birthday") == 0 {
+                birthday = Date(timeIntervalSince1970: 946684800)
+            } else {
+                birthday = Date(timeIntervalSince1970: store.double(forKey: "birthday"))
+            }
         }
     }
 }

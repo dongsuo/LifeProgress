@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F9278F812D2AA846009231F7 /* LifeProgressShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; };
-		F9278F822D2AA846009231F7 /* LifeProgressShared.framework in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F9278F852D2AA850009231F7 /* LifeProgressShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; };
 		F9278F862D2AA850009231F7 /* LifeProgressShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F936D6972D298D94001725F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F936D6962D298D94001725F6 /* Assets.xcassets */; };
+		F9BB94962D2AC54C005A7FF9 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9BB94952D2AC54C005A7FF9 /* AppIntents.framework */; };
+		F9DD3BD92D2ACCC500511B7C /* LifeProgressWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F9FE623E2D2996AB0052F56E /* LifeProgressWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F9FE624C2D2A9BF60052F56E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1BC2D27D85800542BA3 /* SwiftUI.framework */; };
 		F9FE624E2D2A9BF80052F56E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1BA2D27D85800542BA3 /* WidgetKit.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 2BC5D1E42D27DC2E00542BA3;
 			remoteInfo = LifeProgressShared;
+		};
+		F9DD3BDA2D2ACCC500511B7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BC5D1B72D27D85800542BA3;
+			remoteInfo = LifeProgressWidgetExtension;
 		};
 		F9FE624A2D2A8BDF0052F56E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,23 +60,13 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BC5D2102D27DDDB00542BA3 /* Embed Frameworks (1 item) */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				F9278F822D2AA846009231F7 /* LifeProgressShared.framework in Embed Frameworks (1 item) */,
-			);
-			name = "Embed Frameworks (1 item)";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2BC5D2142D27DF8700542BA3 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				F9DD3BD92D2ACCC500511B7C /* LifeProgressWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +88,7 @@
 		2BC5D1DE2D27DBBC00542BA3 /* YearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearProgressView.swift; sourceTree = "<group>"; };
 		F936D6962D298D94001725F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F965C5B72D283B100073A3A7 /* LifeProgressWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeProgressWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F9BB94952D2AC54C005A7FF9 /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
 		F9FE623E2D2996AB0052F56E /* LifeProgressWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeProgressWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LifeProgressShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FE62402D2A7A2B0052F56E /* LifeProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9BB94962D2AC54C005A7FF9 /* AppIntents.framework in Frameworks */,
 				F9FE624C2D2A9BF60052F56E /* SwiftUI.framework in Frameworks */,
 				F9278F812D2AA846009231F7 /* LifeProgressShared.framework in Frameworks */,
 				F9FE624E2D2A9BF80052F56E /* WidgetKit.framework in Frameworks */,
@@ -204,6 +204,7 @@
 		2BC5D1B92D27D85800542BA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9BB94952D2AC54C005A7FF9 /* AppIntents.framework */,
 				2BC5D1DF2D27DBBC00542BA3 /* LifeProgress */,
 				2BC5D1BA2D27D85800542BA3 /* WidgetKit.framework */,
 				2BC5D1BC2D27D85800542BA3 /* SwiftUI.framework */,
@@ -264,6 +265,7 @@
 			dependencies = (
 				F9FE624B2D2A8BDF0052F56E /* PBXTargetDependency */,
 				F9278F882D2AA850009231F7 /* PBXTargetDependency */,
+				F9DD3BDB2D2ACCC500511B7C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				2BC5D1782D2791B000542BA3 /* LifeProgress */,
@@ -282,7 +284,6 @@
 				2BC5D1B42D27D85800542BA3 /* Sources */,
 				2BC5D1B52D27D85800542BA3 /* Frameworks */,
 				2BC5D1B62D27D85800542BA3 /* Resources */,
-				2BC5D2102D27DDDB00542BA3 /* Embed Frameworks (1 item) */,
 			);
 			buildRules = (
 			);
@@ -426,6 +427,11 @@
 			isa = PBXTargetDependency;
 			target = 2BC5D1E42D27DC2E00542BA3 /* LifeProgressShared */;
 			targetProxy = F9278F872D2AA850009231F7 /* PBXContainerItemProxy */;
+		};
+		F9DD3BDB2D2ACCC500511B7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BC5D1B72D27D85800542BA3 /* LifeProgressWidgetExtension */;
+			targetProxy = F9DD3BDA2D2ACCC500511B7C /* PBXContainerItemProxy */;
 		};
 		F9FE624B2D2A8BDF0052F56E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

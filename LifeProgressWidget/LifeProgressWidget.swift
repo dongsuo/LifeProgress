@@ -31,6 +31,22 @@ struct Provider: AppIntentTimelineProvider {
 
         return Timeline(entries: entries, policy: .atEnd)
     }
+    
+    func getSnapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
+        let currentDate = Date()
+        let entry: SimpleEntry
+        
+        if context.isPreview {
+            // Use sample data for preview
+            entry = SimpleEntry(date: currentDate, configuration: configuration)
+        } else {
+            // Use actual data if available
+            // For now, we'll use the same data as preview
+            entry = SimpleEntry(date: currentDate, configuration: configuration)
+        }
+        
+        return entry
+    }
 
 //    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
 //        // Generate a list containing the contexts this widget is relevant in.
@@ -65,9 +81,10 @@ struct LifeProgressWidget: Widget {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             LifeProgressWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
-        }.supportedFamilies([.systemLarge]) // Ensure large size is supported
+        }.configurationDisplayName("Life Progress")
+        .description("Shows an overview of your life progress")
+        .supportedFamilies([.systemLarge])
     }
-
 }
 
 extension ConfigurationAppIntent {
@@ -78,7 +95,7 @@ extension ConfigurationAppIntent {
     }
 }
 
-#Preview(as: .systemExtraLarge) {
+#Preview(as: .systemLarge) {
     LifeProgressWidget()
 } timeline: {
     SimpleEntry(date: .now, configuration: .smiley)
