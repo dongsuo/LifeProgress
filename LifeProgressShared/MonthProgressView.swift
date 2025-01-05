@@ -2,8 +2,16 @@ import SwiftUI
 import CloudKit
 
 public struct MonthProgressView: View {
-    @State private var expectedAge: Int = Int(NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge"))
-    @State private var birthday: Date = Date(timeIntervalSince1970: NSUbiquitousKeyValueStore.default.double(forKey: "birthday"))
+    @State private var expectedAge: Int = {
+        let store = NSUbiquitousKeyValueStore.default
+        let age = Int(store.longLong(forKey: "expectedAge"))
+        return age > 0 ? age : 80 // Fallback to 80 if not set
+    }()
+    @State private var birthday: Date = {
+        let store = NSUbiquitousKeyValueStore.default
+        let birthdayTimeInterval = store.double(forKey: "birthday")
+        return birthdayTimeInterval > 0 ? Date(timeIntervalSince1970: birthdayTimeInterval) : Date() // Fallback to current date if not set
+    }()
     public init() {}
 
     public var body: some View {
@@ -12,19 +20,7 @@ public struct MonthProgressView: View {
                 let monthsInLife = expectedAge * 12
                 let monthsLived = Calendar.current.dateComponents([.month], from: birthday, to: Date()).month ?? 0
                 let currentMonthProgress = Calendar.current.component(.day, from: Date())
-                let currentAge = Calendar.current.dateComponents([.year], from: birthday, to: Date()).year ?? 0
-                let percentage = Double(monthsLived) / Double(monthsInLife) * 100                
                 let blockWidth = (UIScreen.main.bounds.width - 32) / 30
-                ProgressView(value: percentage, total: 100) {
-                    HStack {
-                        Text("Current Age: \(currentAge) years")
-                        Spacer()
-                        Text(String(format: "%.2f%%", percentage))
-                    }
-                    .font(.caption)
-                }
-                .accentColor(.green)
-                .padding(.horizontal)
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: blockWidth))], spacing: 1) {
                         ForEach(0..<monthsInLife, id: \ .self) { index in
@@ -49,15 +45,8 @@ public struct MonthProgressView: View {
                             .cornerRadius(0.5)
                         }
                     }
-                    .padding(.horizontal, 4)
-                    .padding(.vertical)
-                    .background(Color.white.opacity(0.1))
                 }
-                .padding(.vertical)
-                .background(Color.white.opacity(0.1))
-                .edgesIgnoringSafeArea([])
             }
-            .navigationBarTitleDisplayMode(.automatic)
         }.onAppear {
             expectedAge = Int(NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge"))
             birthday = Date(timeIntervalSince1970: NSUbiquitousKeyValueStore.default.double(forKey: "birthday"))

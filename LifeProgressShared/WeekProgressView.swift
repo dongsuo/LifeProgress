@@ -2,8 +2,16 @@ import SwiftUI
 import CloudKit
 
 public struct WeekProgressView: View {
-    @State private var expectedAge: Int = Int(NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge"))
-    @State private var birthday: Date = Date(timeIntervalSince1970: NSUbiquitousKeyValueStore.default.double(forKey: "birthday"))
+    @State private var expectedAge: Int = {
+        let store = NSUbiquitousKeyValueStore.default
+        let age = Int(store.longLong(forKey: "expectedAge"))
+        return age > 0 ? age : 80 // Fallback to 80 if not set
+    }()
+    @State private var birthday: Date = {
+        let store = NSUbiquitousKeyValueStore.default
+        let birthdayTimeInterval = store.double(forKey: "birthday")
+        return birthdayTimeInterval > 0 ? Date(timeIntervalSince1970: birthdayTimeInterval) : Date() // Fallback to current date if not set
+    }()
 
     public init() {}
 
@@ -14,22 +22,9 @@ public struct WeekProgressView: View {
         let daysLived = Calendar.current.dateComponents([.day], from: birthday, to: Date()).day ?? 0
         let weeksLived = daysLived / 7
         let currentWeekProgress = Calendar.current.component(.weekday, from: Date())
-        let currentAge = Calendar.current.dateComponents([.year], from: birthday, to: Date()).year ?? 0
-        let percentage = Double(weeksLived) / Double(weeksInLife) * 100
         let blockWidth = (UIScreen.main.bounds.width-32) / 100
         
         VStack {
-            ProgressView(value: percentage, total: 100) {
-                HStack {
-                    Text("Current Age: \(currentAge) years")
-                    Spacer()
-                    Text(String(format: "%.2f%%", percentage))
-                }
-                .font(.caption)
-            }
-            .accentColor(.green)
-            .padding(.horizontal)
-            
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: blockWidth))], spacing: 2) {
                     ForEach(0..<weeksInLife, id: \ .self) { index in
@@ -39,11 +34,7 @@ public struct WeekProgressView: View {
                             .cornerRadius(1)
                     }
                 }
-                .padding(.horizontal, 8)
-                .padding(.vertical)
-                .background(Color.white.opacity(0.1))
             }
-            .padding(.vertical)
         }
         .onAppear {
             expectedAge = Int(NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge"))

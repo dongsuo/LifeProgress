@@ -27,16 +27,15 @@ defaults?.set(expectedAge, forKey: "expectedAge")
                         let store = NSUbiquitousKeyValueStore.default
                         store.set(newValue.timeIntervalSince1970, forKey: "birthday")
                         store.synchronize()
-                                            let defaults = UserDefaults(suiteName: "group.com.v2free.life_progress")
-defaults?.set(expectedAge, forKey: "birthday")
-
+                        let defaults = UserDefaults(suiteName: "group.com.v2free.life_progress")
+                        defaults?.set(newValue.timeIntervalSince1970, forKey: "birthday")
                     }
             }
         }
         .navigationTitle("Settings")
         .onAppear {
             let store = NSUbiquitousKeyValueStore.default
-            expectedAge = Int(store.longLong(forKey: "expectedAge")) as Int ?? 80
+            expectedAge = Int(store.longLong(forKey: "expectedAge")) as Int
             birthday = Date(timeIntervalSince1970: store.double(forKey: "birthday"))
         }
     }

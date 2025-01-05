@@ -7,60 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BC5D1BB2D27D85800542BA3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1BA2D27D85800542BA3 /* WidgetKit.framework */; };
-		2BC5D1BD2D27D85800542BA3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1BC2D27D85800542BA3 /* SwiftUI.framework */; };
-		2BC5D1EF2D27DC2E00542BA3 /* LifeProgressShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */; };
-		2BC5D1FA2D27DC2E00542BA3 /* LifeProgressShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */; };
-		2BC5D1FB2D27DC2E00542BA3 /* LifeProgressShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2BC5D20C2D27DDDB00542BA3 /* LifeProgressShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */; };
-		2BC5D20D2D27DDDB00542BA3 /* LifeProgressShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2BC5D2112D27DF8700542BA3 /* LifeProgressWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2BC5D1B82D27D85800542BA3 /* LifeProgressWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F9278F812D2AA846009231F7 /* LifeProgressShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; };
+		F9278F822D2AA846009231F7 /* LifeProgressShared.framework in Embed Frameworks (1 item) */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F9278F852D2AA850009231F7 /* LifeProgressShared.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; };
+		F9278F862D2AA850009231F7 /* LifeProgressShared.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F936D6972D298D94001725F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F936D6962D298D94001725F6 /* Assets.xcassets */; };
+		F9FE624C2D2A9BF60052F56E /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1BC2D27D85800542BA3 /* SwiftUI.framework */; };
+		F9FE624E2D2A9BF80052F56E /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC5D1BA2D27D85800542BA3 /* WidgetKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2BC5D18A2D2791B100542BA3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BC5D1752D2791B000542BA3;
-			remoteInfo = LifeProgress;
-		};
-		2BC5D1942D2791B100542BA3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BC5D1752D2791B000542BA3;
-			remoteInfo = LifeProgress;
-		};
-		2BC5D1F02D27DC2E00542BA3 /* PBXContainerItemProxy */ = {
+		F9278F832D2AA846009231F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2BC5D1E42D27DC2E00542BA3;
 			remoteInfo = LifeProgressShared;
 		};
-		2BC5D1F22D27DC2E00542BA3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BC5D1752D2791B000542BA3;
-			remoteInfo = LifeProgress;
-		};
-		2BC5D1F82D27DC2E00542BA3 /* PBXContainerItemProxy */ = {
+		F9278F872D2AA850009231F7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2BC5D1E42D27DC2E00542BA3;
 			remoteInfo = LifeProgressShared;
 		};
-		2BC5D20E2D27DDDB00542BA3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2BC5D1E42D27DC2E00542BA3;
-			remoteInfo = LifeProgressShared;
-		};
-		2BC5D2122D27DF8700542BA3 /* PBXContainerItemProxy */ = {
+		F9FE624A2D2A8BDF0052F56E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2BC5D16E2D2791B000542BA3 /* Project object */;
 			proxyType = 1;
@@ -76,29 +47,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2BC5D1FB2D27DC2E00542BA3 /* LifeProgressShared.framework in Embed Frameworks */,
+				F9278F862D2AA850009231F7 /* LifeProgressShared.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BC5D2102D27DDDB00542BA3 /* Embed Frameworks */ = {
+		2BC5D2102D27DDDB00542BA3 /* Embed Frameworks (1 item) */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2BC5D20D2D27DDDB00542BA3 /* LifeProgressShared.framework in Embed Frameworks */,
+				F9278F822D2AA846009231F7 /* LifeProgressShared.framework in Embed Frameworks (1 item) */,
 			);
-			name = "Embed Frameworks";
+			name = "Embed Frameworks (1 item)";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2BC5D2142D27DF8700542BA3 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2BC5D2112D27DF8700542BA3 /* LifeProgressWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -106,10 +76,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2BC5D1762D2791B000542BA3 /* LifeProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BC5D1892D2791B100542BA3 /* LifeProgressTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeProgressTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BC5D1932D2791B100542BA3 /* LifeProgressUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeProgressUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BC5D1B82D27D85800542BA3 /* LifeProgressWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeProgressWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BC5D1BA2D27D85800542BA3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2BC5D1BC2D27D85800542BA3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		2BC5D1D42D27DBBC00542BA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -122,25 +88,14 @@
 		2BC5D1DC2D27DBBC00542BA3 /* MonthProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthProgressView.swift; sourceTree = "<group>"; };
 		2BC5D1DD2D27DBBC00542BA3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2BC5D1DE2D27DBBC00542BA3 /* YearProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearProgressView.swift; sourceTree = "<group>"; };
-		2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LifeProgressShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BC5D1EE2D27DC2E00542BA3 /* LifeProgressSharedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LifeProgressSharedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F936D6962D298D94001725F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F965C5B72D283B100073A3A7 /* LifeProgressWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LifeProgressWidgetExtension.entitlements; sourceTree = "<group>"; };
+		F9FE623E2D2996AB0052F56E /* LifeProgressWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LifeProgressWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LifeProgressShared.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FE62402D2A7A2B0052F56E /* LifeProgress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LifeProgress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2BC5D1AA2D2791D600542BA3 /* Exceptions for "LifeProgress" folder in "LifeProgressTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ContentView.swift,
-			);
-			target = 2BC5D1882D2791B100542BA3 /* LifeProgressTests */;
-		};
-		2BC5D1AB2D2791D600542BA3 /* Exceptions for "LifeProgress" folder in "LifeProgressUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ContentView.swift,
-			);
-			target = 2BC5D1922D2791B100542BA3 /* LifeProgressUITests */;
-		};
 		2BC5D1AF2D27B4D900542BA3 /* Exceptions for "LifeProgress" folder in "LifeProgress" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -157,6 +112,9 @@
 		};
 		2BC5D1FF2D27DC2E00542BA3 /* Exceptions for "LifeProgressShared" folder in "LifeProgressShared" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
 			publicHeaders = (
 				LifeProgressShared.h,
 			);
@@ -169,20 +127,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				2BC5D1AF2D27B4D900542BA3 /* Exceptions for "LifeProgress" folder in "LifeProgress" target */,
-				2BC5D1AA2D2791D600542BA3 /* Exceptions for "LifeProgress" folder in "LifeProgressTests" target */,
-				2BC5D1AB2D2791D600542BA3 /* Exceptions for "LifeProgress" folder in "LifeProgressUITests" target */,
 			);
 			path = LifeProgress;
-			sourceTree = "<group>";
-		};
-		2BC5D18C2D2791B100542BA3 /* LifeProgressTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LifeProgressTests;
-			sourceTree = "<group>";
-		};
-		2BC5D1962D2791B100542BA3 /* LifeProgressUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LifeProgressUITests;
 			sourceTree = "<group>";
 		};
 		2BC5D1BE2D27D85800542BA3 /* LifeProgressWidget */ = {
@@ -201,11 +147,6 @@
 			path = LifeProgressShared;
 			sourceTree = "<group>";
 		};
-		2BC5D1F42D27DC2E00542BA3 /* LifeProgressSharedTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LifeProgressSharedTests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,21 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC5D1FA2D27DC2E00542BA3 /* LifeProgressShared.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BC5D1862D2791B100542BA3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BC5D1902D2791B100542BA3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				F9278F852D2AA850009231F7 /* LifeProgressShared.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,9 +162,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC5D1BD2D27D85800542BA3 /* SwiftUI.framework in Frameworks */,
-				2BC5D20C2D27DDDB00542BA3 /* LifeProgressShared.framework in Frameworks */,
-				2BC5D1BB2D27D85800542BA3 /* WidgetKit.framework in Frameworks */,
+				F9FE624C2D2A9BF60052F56E /* SwiftUI.framework in Frameworks */,
+				F9278F812D2AA846009231F7 /* LifeProgressShared.framework in Frameworks */,
+				F9FE624E2D2A9BF80052F56E /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,40 +175,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BC5D1EB2D27DC2E00542BA3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2BC5D1EF2D27DC2E00542BA3 /* LifeProgressShared.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		2BC5D16D2D2791B000542BA3 = {
 			isa = PBXGroup;
 			children = (
+				F965C5B72D283B100073A3A7 /* LifeProgressWidgetExtension.entitlements */,
 				2BC5D1782D2791B000542BA3 /* LifeProgress */,
-				2BC5D18C2D2791B100542BA3 /* LifeProgressTests */,
-				2BC5D1962D2791B100542BA3 /* LifeProgressUITests */,
 				2BC5D1BE2D27D85800542BA3 /* LifeProgressWidget */,
 				2BC5D1E62D27DC2E00542BA3 /* LifeProgressShared */,
-				2BC5D1F42D27DC2E00542BA3 /* LifeProgressSharedTests */,
 				2BC5D1B92D27D85800542BA3 /* Frameworks */,
 				2BC5D1772D2791B000542BA3 /* Products */,
+				F936D6962D298D94001725F6 /* Assets.xcassets */,
 			);
 			sourceTree = "<group>";
 		};
 		2BC5D1772D2791B000542BA3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BC5D1762D2791B000542BA3 /* LifeProgress.app */,
-				2BC5D1892D2791B100542BA3 /* LifeProgressTests.xctest */,
-				2BC5D1932D2791B100542BA3 /* LifeProgressUITests.xctest */,
-				2BC5D1B82D27D85800542BA3 /* LifeProgressWidgetExtension.appex */,
-				2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */,
-				2BC5D1EE2D27DC2E00542BA3 /* LifeProgressSharedTests.xctest */,
+				F9FE623E2D2996AB0052F56E /* LifeProgressWidgetExtension.appex */,
+				F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */,
+				F9FE62402D2A7A2B0052F56E /* LifeProgress.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -347,8 +262,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				2BC5D1F92D27DC2E00542BA3 /* PBXTargetDependency */,
-				2BC5D2132D27DF8700542BA3 /* PBXTargetDependency */,
+				F9FE624B2D2A8BDF0052F56E /* PBXTargetDependency */,
+				F9278F882D2AA850009231F7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				2BC5D1782D2791B000542BA3 /* LifeProgress */,
@@ -357,54 +272,8 @@
 			packageProductDependencies = (
 			);
 			productName = LifeProgress;
-			productReference = 2BC5D1762D2791B000542BA3 /* LifeProgress.app */;
+			productReference = F9FE62402D2A7A2B0052F56E /* LifeProgress.app */;
 			productType = "com.apple.product-type.application";
-		};
-		2BC5D1882D2791B100542BA3 /* LifeProgressTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BC5D1A02D2791B100542BA3 /* Build configuration list for PBXNativeTarget "LifeProgressTests" */;
-			buildPhases = (
-				2BC5D1852D2791B100542BA3 /* Sources */,
-				2BC5D1862D2791B100542BA3 /* Frameworks */,
-				2BC5D1872D2791B100542BA3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BC5D18B2D2791B100542BA3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2BC5D18C2D2791B100542BA3 /* LifeProgressTests */,
-			);
-			name = LifeProgressTests;
-			packageProductDependencies = (
-			);
-			productName = LifeProgressTests;
-			productReference = 2BC5D1892D2791B100542BA3 /* LifeProgressTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		2BC5D1922D2791B100542BA3 /* LifeProgressUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BC5D1A32D2791B100542BA3 /* Build configuration list for PBXNativeTarget "LifeProgressUITests" */;
-			buildPhases = (
-				2BC5D18F2D2791B100542BA3 /* Sources */,
-				2BC5D1902D2791B100542BA3 /* Frameworks */,
-				2BC5D1912D2791B100542BA3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BC5D1952D2791B100542BA3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2BC5D1962D2791B100542BA3 /* LifeProgressUITests */,
-			);
-			name = LifeProgressUITests;
-			packageProductDependencies = (
-			);
-			productName = LifeProgressUITests;
-			productReference = 2BC5D1932D2791B100542BA3 /* LifeProgressUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		2BC5D1B72D27D85800542BA3 /* LifeProgressWidgetExtension */ = {
 			isa = PBXNativeTarget;
@@ -413,12 +282,12 @@
 				2BC5D1B42D27D85800542BA3 /* Sources */,
 				2BC5D1B52D27D85800542BA3 /* Frameworks */,
 				2BC5D1B62D27D85800542BA3 /* Resources */,
-				2BC5D2102D27DDDB00542BA3 /* Embed Frameworks */,
+				2BC5D2102D27DDDB00542BA3 /* Embed Frameworks (1 item) */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2BC5D20F2D27DDDB00542BA3 /* PBXTargetDependency */,
+				F9278F842D2AA846009231F7 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				2BC5D1BE2D27D85800542BA3 /* LifeProgressWidget */,
@@ -427,7 +296,7 @@
 			packageProductDependencies = (
 			);
 			productName = LifeProgressWidgetExtension;
-			productReference = 2BC5D1B82D27D85800542BA3 /* LifeProgressWidgetExtension.appex */;
+			productReference = F9FE623E2D2996AB0052F56E /* LifeProgressWidgetExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		2BC5D1E42D27DC2E00542BA3 /* LifeProgressShared */ = {
@@ -450,32 +319,8 @@
 			packageProductDependencies = (
 			);
 			productName = LifeProgressShared;
-			productReference = 2BC5D1E52D27DC2E00542BA3 /* LifeProgressShared.framework */;
+			productReference = F9FE623F2D29974C0052F56E /* LifeProgressShared.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		2BC5D1ED2D27DC2E00542BA3 /* LifeProgressSharedTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2BC5D2012D27DC2E00542BA3 /* Build configuration list for PBXNativeTarget "LifeProgressSharedTests" */;
-			buildPhases = (
-				2BC5D1EA2D27DC2E00542BA3 /* Sources */,
-				2BC5D1EB2D27DC2E00542BA3 /* Frameworks */,
-				2BC5D1EC2D27DC2E00542BA3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2BC5D1F12D27DC2E00542BA3 /* PBXTargetDependency */,
-				2BC5D1F32D27DC2E00542BA3 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2BC5D1F42D27DC2E00542BA3 /* LifeProgressSharedTests */,
-			);
-			name = LifeProgressSharedTests;
-			packageProductDependencies = (
-			);
-			productName = LifeProgressSharedTests;
-			productReference = 2BC5D1EE2D27DC2E00542BA3 /* LifeProgressSharedTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -493,23 +338,11 @@
 					2BC5D1752D2791B000542BA3 = {
 						CreatedOnToolsVersion = 16.2;
 					};
-					2BC5D1882D2791B100542BA3 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 2BC5D1752D2791B000542BA3;
-					};
-					2BC5D1922D2791B100542BA3 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 2BC5D1752D2791B000542BA3;
-					};
 					2BC5D1B72D27D85800542BA3 = {
 						CreatedOnToolsVersion = 16.2;
 					};
 					2BC5D1E42D27DC2E00542BA3 = {
 						CreatedOnToolsVersion = 16.2;
-					};
-					2BC5D1ED2D27DC2E00542BA3 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 2BC5D1752D2791B000542BA3;
 					};
 				};
 			};
@@ -528,11 +361,8 @@
 			projectRoot = "";
 			targets = (
 				2BC5D1752D2791B000542BA3 /* LifeProgress */,
-				2BC5D1882D2791B100542BA3 /* LifeProgressTests */,
-				2BC5D1922D2791B100542BA3 /* LifeProgressUITests */,
 				2BC5D1B72D27D85800542BA3 /* LifeProgressWidgetExtension */,
 				2BC5D1E42D27DC2E00542BA3 /* LifeProgressShared */,
-				2BC5D1ED2D27DC2E00542BA3 /* LifeProgressSharedTests */,
 			);
 		};
 /* End PBXProject section */
@@ -542,20 +372,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BC5D1872D2791B100542BA3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BC5D1912D2791B100542BA3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				F936D6972D298D94001725F6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,31 +390,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BC5D1EC2D27DC2E00542BA3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2BC5D1722D2791B000542BA3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BC5D1852D2791B100542BA3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2BC5D18F2D2791B100542BA3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -618,50 +414,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2BC5D1EA2D27DC2E00542BA3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2BC5D18B2D2791B100542BA3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BC5D1752D2791B000542BA3 /* LifeProgress */;
-			targetProxy = 2BC5D18A2D2791B100542BA3 /* PBXContainerItemProxy */;
-		};
-		2BC5D1952D2791B100542BA3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BC5D1752D2791B000542BA3 /* LifeProgress */;
-			targetProxy = 2BC5D1942D2791B100542BA3 /* PBXContainerItemProxy */;
-		};
-		2BC5D1F12D27DC2E00542BA3 /* PBXTargetDependency */ = {
+		F9278F842D2AA846009231F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2BC5D1E42D27DC2E00542BA3 /* LifeProgressShared */;
-			targetProxy = 2BC5D1F02D27DC2E00542BA3 /* PBXContainerItemProxy */;
+			targetProxy = F9278F832D2AA846009231F7 /* PBXContainerItemProxy */;
 		};
-		2BC5D1F32D27DC2E00542BA3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BC5D1752D2791B000542BA3 /* LifeProgress */;
-			targetProxy = 2BC5D1F22D27DC2E00542BA3 /* PBXContainerItemProxy */;
-		};
-		2BC5D1F92D27DC2E00542BA3 /* PBXTargetDependency */ = {
+		F9278F882D2AA850009231F7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2BC5D1E42D27DC2E00542BA3 /* LifeProgressShared */;
-			targetProxy = 2BC5D1F82D27DC2E00542BA3 /* PBXContainerItemProxy */;
+			targetProxy = F9278F872D2AA850009231F7 /* PBXContainerItemProxy */;
 		};
-		2BC5D20F2D27DDDB00542BA3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2BC5D1E42D27DC2E00542BA3 /* LifeProgressShared */;
-			targetProxy = 2BC5D20E2D27DDDB00542BA3 /* PBXContainerItemProxy */;
-		};
-		2BC5D2132D27DF8700542BA3 /* PBXTargetDependency */ = {
+		F9FE624B2D2A8BDF0052F56E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2BC5D1B72D27D85800542BA3 /* LifeProgressWidgetExtension */;
-			targetProxy = 2BC5D2122D27DF8700542BA3 /* PBXContainerItemProxy */;
+			targetProxy = F9FE624A2D2A8BDF0052F56E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -722,6 +491,8 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -776,6 +547,8 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 			};
 			name = Release;
@@ -785,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = LifeProgress/LifeProgress.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -794,6 +568,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LifeProgress/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Life Progress with widget";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -804,7 +580,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -812,7 +588,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
@@ -825,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = LifeProgress/LifeProgress.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -834,6 +614,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LifeProgress/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Life Progress with widget";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -844,7 +626,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
@@ -852,100 +634,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		2BC5D1A12D2791B100542BA3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5WZP6VVV63;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgressTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LifeProgress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LifeProgress";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		2BC5D1A22D2791B100542BA3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5WZP6VVV63;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgressTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LifeProgress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LifeProgress";
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
-		};
-		2BC5D1A42D2791B100542BA3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5WZP6VVV63;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgressUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = LifeProgress;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		2BC5D1A52D2791B100542BA3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5WZP6VVV63;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MACOSX_DEPLOYMENT_TARGET = 14.6;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgressUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
-				TEST_TARGET_NAME = LifeProgress;
 				XROS_DEPLOYMENT_TARGET = 2.2;
 			};
 			name = Release;
@@ -955,6 +650,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = LifeProgressWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5WZP6VVV63;
@@ -962,7 +659,7 @@
 				INFOPLIST_FILE = LifeProgressWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LifeProgressWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -971,11 +668,13 @@
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgress.LifeProgressWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -984,6 +683,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = LifeProgressWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5WZP6VVV63;
@@ -991,7 +692,7 @@
 				INFOPLIST_FILE = LifeProgressWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = LifeProgressWidget;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1000,6 +701,7 @@
 				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgress.LifeProgressWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1022,9 +724,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LifeProgressShared/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1037,6 +740,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1059,9 +764,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LifeProgressShared/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1074,6 +780,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
@@ -1081,45 +789,6 @@
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		2BC5D2022D27DC2E00542BA3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5WZP6VVV63;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgress.LifeProgressSharedTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LifeProgress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LifeProgress";
-			};
-			name = Debug;
-		};
-		2BC5D2032D27DC2E00542BA3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5WZP6VVV63;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.v2free.LifeProgress.LifeProgressSharedTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LifeProgress.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LifeProgress";
-				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -1144,24 +813,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BC5D1A02D2791B100542BA3 /* Build configuration list for PBXNativeTarget "LifeProgressTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BC5D1A12D2791B100542BA3 /* Debug */,
-				2BC5D1A22D2791B100542BA3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2BC5D1A32D2791B100542BA3 /* Build configuration list for PBXNativeTarget "LifeProgressUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BC5D1A42D2791B100542BA3 /* Debug */,
-				2BC5D1A52D2791B100542BA3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2BC5D1CF2D27D85900542BA3 /* Build configuration list for PBXNativeTarget "LifeProgressWidgetExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1176,15 +827,6 @@
 			buildConfigurations = (
 				2BC5D1FD2D27DC2E00542BA3 /* Debug */,
 				2BC5D1FE2D27DC2E00542BA3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2BC5D2012D27DC2E00542BA3 /* Build configuration list for PBXNativeTarget "LifeProgressSharedTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2BC5D2022D27DC2E00542BA3 /* Debug */,
-				2BC5D2032D27DC2E00542BA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

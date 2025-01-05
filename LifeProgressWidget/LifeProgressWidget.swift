@@ -45,26 +45,26 @@ struct SimpleEntry: TimelineEntry {
 struct LifeProgressWidgetEntryView : View {
     var entry: Provider.Entry
 
-        // Text(entry.date, format: .dateTime.day().month().year())
-        // Text(entry.configuration.favoriteEmoji)
     var body: some View {
         GeometryReader { geometry in
             let size = geometry.size
-        Text("Widget size: \(size.width) x \(size.height)")
-            YearProgressView()
-                .frame(width: size.width, height: size.height)
+            if size.height > 0 {
+                YearProgressView(width: size.width, height: size.height)
+                    .frame(width: size.width, height: size.height)
+            } else {
+                Text(entry.date, style: .time)
+            }
         }
     }
 }
 
 struct LifeProgressWidget: Widget {
-    let kind: String = "LifeProgressWidget"
+    let kind: String = "com.v2free.LifeProgress.LifeProgressWidget"
 
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             LifeProgressWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
-                .previewContext(WidgetPreviewContext(family: .systemLarge))
         }.supportedFamilies([.systemLarge]) // Ensure large size is supported
     }
 
@@ -78,7 +78,7 @@ extension ConfigurationAppIntent {
     }
 }
 
-#Preview(as: .systemSmall) {
+#Preview(as: .systemExtraLarge) {
     LifeProgressWidget()
 } timeline: {
     SimpleEntry(date: .now, configuration: .smiley)
