@@ -17,7 +17,6 @@ struct SettingsView: View {
                     store.synchronize()
                     let defaults = UserDefaults(suiteName: "group.com.v2free.life_progress")
                     defaults?.set(expectedAge, forKey: "expectedAge")
-
                 }
             }
             

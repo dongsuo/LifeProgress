@@ -11,7 +11,8 @@ import SwiftUI
 @main
 struct LifeProgressWidgetBundle: WidgetBundle {
     var body: some Widget {
-        LifeProgressWidget()
+        YearProgressWidget()
+        MonthProgressWidget()
         LifeProgressWidgetControl()
         LifeProgressWidgetLiveActivity()
     }

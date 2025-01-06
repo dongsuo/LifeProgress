@@ -27,7 +27,6 @@ public struct YearProgressView: View {
         let blockWidth = (width - 32) / 10
         // print("YearProgressView body", yearsInLife, yearsLived, currentYearProgress, percentage)
         VStack {
-            VStack {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: blockWidth))], spacing: 2) {
                     ForEach(0..<yearsInLife, id: \ .self) { index in
                         ZStack(alignment: .bottom) {
@@ -49,18 +48,17 @@ public struct YearProgressView: View {
                     }
                 }
             }
-        }
         .onAppear {
-            let store = NSUbiquitousKeyValueStore.default
-            if store.longLong(forKey: "expectedAge") == 0 {
+            let defaults = UserDefaults(suiteName: "group.com.v2free.life_progress")
+            if defaults?.integer(forKey: "expectedAge") == 0 {
                 expectedAge = 80
             } else {
-                expectedAge = Int(store.longLong(forKey: "expectedAge")) as Int
+                expectedAge = Int(defaults?.integer(forKey: "expectedAge") ?? 80) as Int
             }
-            if store.double(forKey: "birthday") == 0 {
+            if defaults?.double(forKey: "birthday") == 0 {
                 birthday = Date(timeIntervalSince1970: 946684800)
             } else {
-                birthday = Date(timeIntervalSince1970: store.double(forKey: "birthday"))
+                birthday = Date(timeIntervalSince1970: defaults?.double(forKey: "birthday") ?? 946684800)
             }
         }
     }

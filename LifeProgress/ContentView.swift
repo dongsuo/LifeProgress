@@ -13,7 +13,7 @@ struct ContentView: View {
         let birthdayTimeInterval = store.double(forKey: "birthday")
         return birthdayTimeInterval > 0 ? Date(timeIntervalSince1970: birthdayTimeInterval) : Date() // Fallback to current date if not set
     }()
-    @State private var selectedTab: Tab = .week
+    @State private var selectedTab: Tab = .month
     
     enum Tab {
         case week, month, year, settings
@@ -24,53 +24,55 @@ struct ContentView: View {
         let yearsLived = Calendar.current.dateComponents([.year], from: birthday, to: Date()).year ?? 0
         let percentage = Double(yearsLived) / Double(yearsInLife) * 100
         
-        NavigationView {
-            VStack {
-                ProgressView(value: percentage, total: 100) {
-                    HStack {
-                        Text("\(yearsLived) years")
-                        Spacer()
-                        Text(String(format: "%.2f%%", percentage))
+        VStack {
+            GeometryReader { geometry in
+                VStack {
+                    ProgressView(value: percentage, total: 100) {
+                        HStack {
+                            Text("\(yearsLived) years")
+                            Spacer()
+                            Text(String(format: "%.2f%%", percentage))
+                        }
+                        .font(.caption)
                     }
-                    .font(.caption)
-                }
-                .accentColor(.green)
-                .padding(.horizontal)
-                .opacity(selectedTab == .settings ? 0 : 1)
+                    .accentColor(.green)
+                    .padding(.horizontal)
+                    .opacity(selectedTab == .settings ? 0 : 1)
 
-                TabView(selection: $selectedTab) {
-                    WeekProgressView()
-                        .tabItem {
-                            Label("Week", systemImage: "calendar")
-                        }
-                        .tag(Tab.week)
-                    MonthProgressView()
-                        .tabItem {
-                            Label("Month", systemImage: "calendar")
-                        }
-                        .tag(Tab.month)
-                    YearProgressView(width: UIScreen.main.bounds.width, height: 0.0)
-                        .tabItem {
-                            Label("Year", systemImage: "calendar")
-                        }
-                        .tag(Tab.year)
-                    SettingsView()
-                        .tabItem {
-                            Label("Settings", systemImage: "gear")
-                        }
-                        .tag(Tab.settings)
-                }.padding(selectedTab == .settings ? 0.0:16)
-            }
-//            .navigationBarTitleDisplayMode(.automatic)
-            .onAppear {
-                if NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge") == 0 {
-                    NSUbiquitousKeyValueStore.default.set(80, forKey: "expectedAge")
+                    TabView(selection: $selectedTab) {
+                        MonthProgressView(width: geometry.size.width, height: geometry.size.height)
+                            .tabItem {
+                                Label("Month", systemImage: "calendar")
+                            }
+                            .tag(Tab.month)
+                        WeekProgressView(width: geometry.size.width, height: geometry.size.height)
+                            .tabItem {
+                                Label("Week", systemImage: "calendar")
+                            }
+                            .tag(Tab.week)
+                        YearProgressView(width: geometry.size.width, height: geometry.size.height)
+                            .tabItem {
+                                Label("Year", systemImage: "calendar")
+                            }
+                            .tag(Tab.year)
+                        SettingsView()
+                            .tabItem {
+                                Label("Settings", systemImage: "gear")
+                            }
+                            .tag(Tab.settings)
+                    }
+                    .padding(selectedTab == .settings ? 0.0 : 16)
                 }
-                if NSUbiquitousKeyValueStore.default.double(forKey: "birthday") == 0 {
-                    NSUbiquitousKeyValueStore.default.set(Date(timeIntervalSince1970: 946684800).timeIntervalSince1970, forKey: "birthday")
-                }
-                NSUbiquitousKeyValueStore.default.synchronize()
             }
+        }
+        .onAppear {
+            if NSUbiquitousKeyValueStore.default.longLong(forKey: "expectedAge") == 0 {
+                NSUbiquitousKeyValueStore.default.set(80, forKey: "expectedAge")
+            }
+            if NSUbiquitousKeyValueStore.default.double(forKey: "birthday") == 0 {
+                NSUbiquitousKeyValueStore.default.set(Date(timeIntervalSince1970: 946684800).timeIntervalSince1970, forKey: "birthday")
+            }
+            NSUbiquitousKeyValueStore.default.synchronize()
         }
     }
 }
