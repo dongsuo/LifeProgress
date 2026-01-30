@@ -23,7 +23,8 @@ public struct YearProgressView: View {
     public var body: some View {
         let yearsInLife = expectedAge
         let yearsLived = Calendar.current.dateComponents([.year], from: birthday, to: Date()).year ?? 0
-        let currentYearProgress = Calendar.current.component(.dayOfYear, from: Date())
+        let startOfYear = Calendar.current.date(from: Calendar.current.dateComponents([.year], from: Date()))!
+        let currentYearProgress = Calendar.current.dateComponents([.day], from: startOfYear, to: Date()).day!
         let blockWidth = (width - 32) / 10
         // print("YearProgressView body", yearsInLife, yearsLived, currentYearProgress, percentage)
         VStack {

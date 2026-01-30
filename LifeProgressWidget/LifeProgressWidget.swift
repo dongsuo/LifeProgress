@@ -56,11 +56,8 @@ struct YearProgressWidgetEntryView: View {
         GeometryReader { geometry in
             let size = geometry.size
             if size.height > 0 {
-                VStack {
-                    Text("Yearly Life Progress").font(.caption2).padding(.bottom, -16) // Title with reduced bottom padding
-                    YearProgressView(width: size.width, height: size.height)
-                        .frame(width: size.width, height: size.height)
-                }
+                YearProgressView(width: size.width, height: size.height)
+                    .frame(width: size.width, height: size.height)
             } else {
                 Text(entry.date, style: .time)
             }
@@ -75,11 +72,8 @@ struct MonthProgressWidgetEntryView: View {
         GeometryReader { geometry in
             let size = geometry.size
             if size.height > 0 {
-                VStack {
-                    Text("Monthly Life Progress").font(.caption2 ).padding(.bottom, -24) // Title extracted from the entry
                 MonthProgressView(width: size.width, height: size.height)
                     .frame(width: size.width, height: size.height)
-                }
             } else {
                 Text(entry.date, style: .time)
             }

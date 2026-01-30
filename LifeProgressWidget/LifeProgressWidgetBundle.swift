@@ -13,7 +13,7 @@ struct LifeProgressWidgetBundle: WidgetBundle {
     var body: some Widget {
         YearProgressWidget()
         MonthProgressWidget()
-        LifeProgressWidgetControl()
-        LifeProgressWidgetLiveActivity()
+        // LifeProgressWidgetControl()
+        // LifeProgressWidgetLiveActivity()
     }
 }
