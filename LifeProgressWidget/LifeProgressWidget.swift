@@ -90,7 +90,7 @@ struct YearProgressWidget: Widget {
                 .containerBackground(.fill.secondary, for: .widget)
         }.configurationDisplayName("Year Progress")
         .description("Shows the progress of life by year")
-        .supportedFamilies([.systemLarge])
+        .supportedFamilies([.systemLarge, .systemExtraLarge])
     }
 }
 
@@ -103,7 +103,7 @@ struct MonthProgressWidget: Widget {
                 .containerBackground(.fill.secondary, for: .widget)
         }.configurationDisplayName("Month Progress")
         .description("Shows the progress of life by month")
-        .supportedFamilies([.systemLarge])
+        .supportedFamilies([.systemLarge, .systemExtraLarge])
     }
 }
 

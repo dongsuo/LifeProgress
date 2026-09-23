@@ -43,8 +43,7 @@ public struct MonthProgressView: View {
             return map
         }()
 
-        ScrollView {
-            VStack {
+        VStack {
                 Spacer(minLength: 0)
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 2), count: 20), spacing: 2) {
                 ForEach(0..<monthsInLife, id: \.self) { index in
