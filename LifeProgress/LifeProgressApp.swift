@@ -7,15 +7,16 @@
 
 import SwiftUI
 import SwiftData
+import LifeProgressShared
 
 @main
 struct LifeProgressApp: App {
     var sharedModelContainer: ModelContainer = {
         UserDefaults.standard.set(true, forKey: "com.apple.SwiftData.Logging")
         let schema = Schema([
-            Item.self
+            LifeEvent.self
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false, cloudKitDatabase: .automatic)
 
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])

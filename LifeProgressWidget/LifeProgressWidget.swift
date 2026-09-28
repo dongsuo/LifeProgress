@@ -15,17 +15,18 @@ struct Provider: AppIntentTimelineProvider {
     }
 
     func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> widgetEntry {
-        widgetEntry(date: Date(), configuration: configuration)
+        widgetEntry(date: Date(), configuration: configuration, events: WidgetDataSync.loadEvents())
     }
     
     func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<widgetEntry> {
         var entries: [widgetEntry] = []
+        let events = WidgetDataSync.loadEvents()
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = widgetEntry(date: entryDate, configuration: configuration)
+            let entry = widgetEntry(date: entryDate, configuration: configuration, events: events)
             entries.append(entry)
         }
 
@@ -34,7 +35,7 @@ struct Provider: AppIntentTimelineProvider {
     
     func getSnapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> widgetEntry {
         let currentDate = Date()
-        let entry = widgetEntry(date: currentDate, configuration: configuration)
+        let entry = widgetEntry(date: currentDate, configuration: configuration, events: WidgetDataSync.loadEvents())
         
         return entry
     }
@@ -47,6 +48,7 @@ struct Provider: AppIntentTimelineProvider {
 struct widgetEntry: TimelineEntry {
     let date: Date
     let configuration: ConfigurationAppIntent
+    var events: [LifeEvent] = []
 }
 
 struct YearProgressWidgetEntryView: View {
@@ -56,7 +58,7 @@ struct YearProgressWidgetEntryView: View {
         GeometryReader { geometry in
             let size = geometry.size
             if size.height > 0 {
-                YearProgressView(width: size.width, height: size.height)
+                YearProgressView(width: size.width, height: size.height, events: entry.events, isWidget: true)
                     .frame(width: size.width, height: size.height)
             } else {
                 Text(entry.date, style: .time)
@@ -72,7 +74,7 @@ struct MonthProgressWidgetEntryView: View {
         GeometryReader { geometry in
             let size = geometry.size
             if size.height > 0 {
-                MonthProgressView(width: size.width, height: size.height)
+                MonthProgressView(width: size.width, height: size.height, events: entry.events, isWidget: true)
                     .frame(width: size.width, height: size.height)
             } else {
                 Text(entry.date, style: .time)
@@ -87,10 +89,10 @@ struct YearProgressWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             YearProgressWidgetEntryView(entry: entry)
-                .containerBackground(.fill.secondary, for: .widget)
+                .containerBackground(Color(uiColor: .systemBackground), for: .widget)
         }.configurationDisplayName("Year Progress")
         .description("Shows the progress of life by year")
-        .supportedFamilies([.systemLarge])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
     }
 }
 
@@ -100,10 +102,10 @@ struct MonthProgressWidget: Widget {
     var body: some WidgetConfiguration {
         AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
             MonthProgressWidgetEntryView(entry: entry)
-                .containerBackground(.fill.secondary, for: .widget)
+                .containerBackground(Color(uiColor: .systemBackground), for: .widget)
         }.configurationDisplayName("Month Progress")
         .description("Shows the progress of life by month")
-        .supportedFamilies([.systemLarge])
+        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
     }
 }
 
