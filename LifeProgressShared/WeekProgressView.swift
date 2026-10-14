@@ -61,10 +61,18 @@ public struct WeekProgressView: View {
                                 let baseLived = eventColor ?? livedColor
                                 let baseUnlived = eventColor?.opacity(0.4) ?? unlivedColor
                                 let fillColor = index < weeksLived ? baseLived : (index == weeksLived ? baseLived.opacity(Double(currentWeekProgress) / 7.0) : baseUnlived)
+                                let theme = blockEvents.lazy.compactMap(\.eventTheme).first
 
                                 RoundedRectangle(cornerRadius: 2)
                                     .fill(fillColor)
                                     .frame(width: blockWidth, height: blockHeight)
+                                    .overlay {
+                                        if let theme {
+                                            Image(systemName: theme.resolvedSymbolName)
+                                                .font(.system(size: blockHeight * 0.8, weight: .bold))
+                                                .foregroundStyle(index < weeksLived ? .white : baseLived)
+                                        }
+                                    }
                                     .shadow(color: index < weeksLived ? baseLived.opacity(0.2) : .clear, radius: 0.8, x: 0, y: 0.5)
                                     .onTapGesture {
                                         onBlockTap?(blockStartDate)
