@@ -32,6 +32,29 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
+            Section(header: Text("Support Development"), footer: Text("Life Progress is free with all features. If you find it helpful, consider buying me a treat.")) {
+                if tipStore.products.isEmpty {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                } else {
+                    HStack(spacing: 8) {
+                        ForEach(tipStore.products) { product in
+                            TipCard(
+                                product: product,
+                                highlighted: product.id == TipStore.productIDs[1],
+                                isPurchasing: tipStore.isPurchasing
+                            ) {
+                                Task { await tipStore.purchase(product) }
+                            }
+                        }
+                    }
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                }
+            }
+
             Section(header: Text("Expected Age")) {
                 Stepper(value: $expectedAge, in: 0...150) {
                     Text("\(expectedAge) years")
@@ -108,24 +131,6 @@ struct SettingsView: View {
                 }
             }
 
-            Section(header: Text("Support Development"), footer: Text("Life Progress is free with all features. If you find it helpful, consider buying me a treat.")) {
-                if tipStore.products.isEmpty {
-                    HStack {
-                        Spacer()
-                        ProgressView()
-                        Spacer()
-                    }
-                } else {
-                    HStack(spacing: 10) {
-                        ForEach(tipStore.products) { product in
-                            TipCard(product: product, isPurchasing: tipStore.isPurchasing) {
-                                Task { await tipStore.purchase(product) }
-                            }
-                        }
-                    }
-                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                }
-            }
         }
         .navigationTitle("Settings")
         .task {
@@ -166,64 +171,45 @@ struct SettingsView: View {
 
 private struct TipCard: View {
     let product: Product
+    let highlighted: Bool
     let isPurchasing: Bool
     let action: () -> Void
+
+    private static let accent = Color(hex: "26C281")
 
     private var style: TipStyle { TipStyle.forProduct(product.id) }
 
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 8) {
+            VStack(spacing: 6) {
                 Image(systemName: style.icon)
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .frame(width: 46, height: 46)
-                    .background(
-                        Circle().fill(
-                            LinearGradient(
-                                colors: style.gradientColors,
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    )
-                    .shadow(color: style.gradientColors[0].opacity(0.4), radius: 6, x: 0, y: 3)
+                    .font(.system(size: 20, weight: .regular))
+                    .foregroundStyle(highlighted ? Self.accent : .secondary)
+                    .frame(height: 24)
 
                 Text(style.title)
-                    .font(.caption2)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.primary)
+                    .font(.caption)
+                    .foregroundStyle(highlighted ? .primary : .secondary)
                     .multilineTextAlignment(.center)
                     .lineLimit(2)
                     .minimumScaleFactor(0.8)
                     .fixedSize(horizontal: false, vertical: true)
 
                 Text(product.displayPrice)
-                    .font(.caption)
-                    .fontWeight(.bold)
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 3)
-                    .background(
-                        Capsule().fill(
-                            LinearGradient(
-                                colors: style.gradientColors,
-                                startPoint: .leading,
-                                endPoint: .trailing
-                            )
-                        )
-                    )
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(highlighted ? Self.accent : .primary)
+                    .monospacedDigit()
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .padding(.horizontal, 6)
             .background(
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(style.gradientColors[0].opacity(0.08))
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .fill(highlighted ? Self.accent.opacity(0.12) : Color.primary.opacity(0.05))
             )
             .overlay(
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .stroke(style.gradientColors[0].opacity(0.25), lineWidth: 1)
+                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    .stroke(highlighted ? Self.accent.opacity(0.4) : .clear, lineWidth: 1)
             )
         }
         .buttonStyle(.plain)
