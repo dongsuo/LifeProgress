@@ -74,11 +74,6 @@ public struct YearProgressView: View {
                         let filled = CGRect(x: rect.minX, y: rect.maxY - cell * progressRatio, width: cell, height: cell * progressRatio)
                         context.fill(Path(roundedRect: filled, cornerRadius: corner), with: .color(baseLived))
                     }
-                    if eventColor != nil {
-                        let dotR = max(1.5, cell / 8)
-                        let dot = CGRect(x: rect.midX - dotR, y: rect.maxY - dotR * 2 - 2, width: dotR * 2, height: dotR * 2)
-                        context.fill(Path(ellipseIn: dot), with: .color(.white))
-                    }
                 }
             }
         } else {
@@ -104,18 +99,6 @@ public struct YearProgressView: View {
                             RoundedRectangle(cornerRadius: 4)
                                 .fill(baseLived)
                                 .frame(width: blockWidth, height: filledHeight)
-                        }
-
-                        if !blockEvents.isEmpty {
-                            Circle()
-                                .fill(Color.white)
-                                .frame(width: 5, height: 5)
-                                .overlay {
-                                    Circle()
-                                        .fill(eventColor ?? livedColor)
-                                        .frame(width: 3, height: 3)
-                                }
-                                .offset(y: -3)
                         }
                     }
                     .shadow(color: index < yearsLived ? baseLived.opacity(0.3) : .clear, radius: 2, x: 0, y: 1)

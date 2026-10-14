@@ -65,18 +65,6 @@ public struct WeekProgressView: View {
                                 RoundedRectangle(cornerRadius: 2)
                                     .fill(fillColor)
                                     .frame(width: blockWidth, height: blockHeight)
-                                    .overlay {
-                                        if !blockEvents.isEmpty {
-                                            Circle()
-                                                .fill(Color.white)
-                                                .frame(width: 3, height: 3)
-                                                .overlay {
-                                                    Circle()
-                                                        .fill(eventColor ?? livedColor)
-                                                        .frame(width: 2, height: 2)
-                                                }
-                                        }
-                                    }
                                     .shadow(color: index < weeksLived ? baseLived.opacity(0.2) : .clear, radius: 0.8, x: 0, y: 0.5)
                                     .onTapGesture {
                                         onBlockTap?(blockStartDate)

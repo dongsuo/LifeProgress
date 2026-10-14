@@ -51,6 +51,14 @@ struct widgetEntry: TimelineEntry {
     var events: [LifeEvent] = []
 }
 
+private var supportedFamilies: [WidgetFamily] {
+    var families: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
+    if #available(iOSApplicationExtension 27.0, *) {
+        families.append(.systemExtraLargePortrait)
+    }
+    return families
+}
+
 struct YearProgressWidgetEntryView: View {
     var entry: Provider.Entry
 
@@ -92,7 +100,7 @@ struct YearProgressWidget: Widget {
                 .containerBackground(Color(uiColor: .systemBackground), for: .widget)
         }.configurationDisplayName("Year Progress")
         .description("Shows the progress of life by year")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
+        .supportedFamilies(supportedFamilies)
     }
 }
 
@@ -105,7 +113,7 @@ struct MonthProgressWidget: Widget {
                 .containerBackground(Color(uiColor: .systemBackground), for: .widget)
         }.configurationDisplayName("Month Progress")
         .description("Shows the progress of life by month")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
+        .supportedFamilies(supportedFamilies)
     }
 }
 

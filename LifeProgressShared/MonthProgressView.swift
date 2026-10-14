@@ -90,11 +90,6 @@ public struct MonthProgressView: View {
                         let filled = CGRect(x: rect.minX, y: rect.maxY - cellH * progressRatio, width: cellW, height: cellH * progressRatio)
                         context.fill(Path(roundedRect: filled, cornerRadius: corner), with: .color(baseLived))
                     }
-                    if eventColor != nil {
-                        let dotR = max(1, min(cellW, cellH) / 4)
-                        let dot = CGRect(x: rect.midX - dotR, y: rect.maxY - dotR * 2 - 1, width: dotR * 2, height: dotR * 2)
-                        context.fill(Path(ellipseIn: dot), with: .color(.white))
-                    }
                 }
             }
         } else {
@@ -121,18 +116,6 @@ public struct MonthProgressView: View {
                             RoundedRectangle(cornerRadius: 2)
                                 .fill(baseLived)
                                 .frame(width: blockWidth, height: filledHeight)
-                        }
-
-                        if !blockEvents.isEmpty {
-                            Circle()
-                                .fill(Color.white)
-                                .frame(width: 3, height: 3)
-                                .overlay {
-                                    Circle()
-                                        .fill(eventColor ?? livedColor)
-                                        .frame(width: 2, height: 2)
-                                }
-                                .offset(y: -1)
                         }
                     }
                     .shadow(color: index < monthsLived ? (eventColor ?? livedColor).opacity(0.3) : .clear, radius: 1, x: 0, y: 0.5)
