@@ -1,5 +1,6 @@
 import StoreKit
 import SwiftUI
+import LifeProgressShared
 
 @MainActor
 @Observable
@@ -71,4 +72,33 @@ final class TipStore {
 
 enum StoreError: Error {
     case failedVerification
+}
+
+struct TipStyle {
+    let title: String
+    let icon: String
+    let gradientColors: [Color]
+
+    static func forProduct(_ productID: String) -> TipStyle {
+        switch productID {
+        case TipStore.productIDs[0]:
+            return TipStyle(
+                title: "Buy me a cola",
+                icon: "takeoutbag.and.cup.and.straw.fill",
+                gradientColors: [Color(hex: "E74C3C"), Color(hex: "C0392B")]
+            )
+        case TipStore.productIDs[1]:
+            return TipStyle(
+                title: "Buy me an ice cream",
+                icon: "icecream",
+                gradientColors: [Color(hex: "FD79A8"), Color(hex: "E84393")]
+            )
+        default:
+            return TipStyle(
+                title: "Buy me a coffee",
+                icon: "cup.and.saucer.fill",
+                gradientColors: [Color(hex: "A0704A"), Color(hex: "6F4E37")]
+            )
+        }
+    }
 }

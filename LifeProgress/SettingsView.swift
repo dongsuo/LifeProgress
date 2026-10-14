@@ -108,7 +108,7 @@ struct SettingsView: View {
                 }
             }
 
-            Section(header: Text("Support Development"), footer: Text("Life Progress is free with all features. If you find it helpful, consider leaving a tip.")) {
+            Section(header: Text("Support Development"), footer: Text("Life Progress is free with all features. If you find it helpful, consider buying me a treat.")) {
                 if tipStore.products.isEmpty {
                     HStack {
                         Spacer()
@@ -116,17 +116,14 @@ struct SettingsView: View {
                         Spacer()
                     }
                 } else {
-                    ForEach(tipStore.products) { product in
-                        HStack {
-                            Label(product.displayName, systemImage: "heart.fill")
-                                .foregroundColor(Color(hex: "E55934"))
-                            Spacer()
-                            Button(product.displayPrice) {
+                    HStack(spacing: 10) {
+                        ForEach(tipStore.products) { product in
+                            TipCard(product: product, isPurchasing: tipStore.isPurchasing) {
                                 Task { await tipStore.purchase(product) }
                             }
-                            .disabled(tipStore.isPurchasing)
                         }
                     }
+                    .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
                 }
             }
         }
@@ -164,6 +161,74 @@ struct SettingsView: View {
             let savedUnlived = store.string(forKey: "unlivedColor") ?? "E0E0E0"
             unlivedColor = Color(hex: savedUnlived)
         }
+    }
+}
+
+private struct TipCard: View {
+    let product: Product
+    let isPurchasing: Bool
+    let action: () -> Void
+
+    private var style: TipStyle { TipStyle.forProduct(product.id) }
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 8) {
+                Image(systemName: style.icon)
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .frame(width: 46, height: 46)
+                    .background(
+                        Circle().fill(
+                            LinearGradient(
+                                colors: style.gradientColors,
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                    )
+                    .shadow(color: style.gradientColors[0].opacity(0.4), radius: 6, x: 0, y: 3)
+
+                Text(style.title)
+                    .font(.caption2)
+                    .fontWeight(.medium)
+                    .foregroundStyle(.primary)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text(product.displayPrice)
+                    .font(.caption)
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 3)
+                    .background(
+                        Capsule().fill(
+                            LinearGradient(
+                                colors: style.gradientColors,
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                    )
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.vertical, 14)
+            .padding(.horizontal, 6)
+            .background(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .fill(style.gradientColors[0].opacity(0.08))
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 16, style: .continuous)
+                    .stroke(style.gradientColors[0].opacity(0.25), lineWidth: 1)
+            )
+        }
+        .buttonStyle(.plain)
+        .disabled(isPurchasing)
+        .opacity(isPurchasing ? 0.6 : 1)
     }
 }
 
