@@ -1,6 +1,7 @@
 import SwiftUI
 import CloudKit
 import WidgetKit
+import StoreKit
 import LifeProgressShared
 
 struct SettingsView: View {
@@ -8,6 +9,7 @@ struct SettingsView: View {
     @State private var birthday: Date = Date()
     @State private var livedColor: Color = Color(hex: "26C281")
     @State private var unlivedColor: Color = Color(hex: "E0E0E0")
+    @State private var tipStore = TipStore()
 
     private let colorPresets: [Color] = [
         Color(hex: "26C281"), // emerald
@@ -105,8 +107,46 @@ struct SettingsView: View {
                     WidgetCenter.shared.reloadAllTimelines()
                 }
             }
+
+            Section(header: Text("Support Development"), footer: Text("Life Progress is free with all features. If you find it helpful, consider leaving a tip.")) {
+                if tipStore.products.isEmpty {
+                    HStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
+                    }
+                } else {
+                    ForEach(tipStore.products) { product in
+                        HStack {
+                            Label(product.displayName, systemImage: "heart.fill")
+                                .foregroundColor(Color(hex: "E55934"))
+                            Spacer()
+                            Button(product.displayPrice) {
+                                Task { await tipStore.purchase(product) }
+                            }
+                            .disabled(tipStore.isPurchasing)
+                        }
+                    }
+                }
+            }
         }
         .navigationTitle("Settings")
+        .task {
+            await tipStore.loadProducts()
+        }
+        .alert("Thank You", isPresented: $tipStore.showThankYou) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("Thanks for supporting Life Progress!")
+        }
+        .alert("Purchase", isPresented: Binding(
+            get: { tipStore.errorMessage != nil },
+            set: { if !$0 { tipStore.errorMessage = nil } }
+        )) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(tipStore.errorMessage ?? "")
+        }
         .onAppear {
             let store = NSUbiquitousKeyValueStore.default
             if store.longLong(forKey: "expectedAge") == 0 {

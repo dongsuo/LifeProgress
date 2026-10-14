@@ -1,0 +1,66 @@
+{
+  "identifier" : "F5E02A1B-9C4D-4E8A-B6F1-2D7C8A9E0B3F",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "1A2B3C4D-0001-4000-8000-000000000001",
+      "localizations" : [
+        {
+          "description" : "Support the developer of Life Progress.",
+          "displayName" : "Small Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.v2free.LifeProgress.tip.small",
+      "referenceName" : "Small Tip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "1A2B3C4D-0002-4000-8000-000000000002",
+      "localizations" : [
+        {
+          "description" : "Support the developer of Life Progress.",
+          "displayName" : "Medium Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.v2free.LifeProgress.tip.medium",
+      "referenceName" : "Medium Tip",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "1A2B3C4D-0003-4000-8000-000000000003",
+      "localizations" : [
+        {
+          "description" : "Support the developer of Life Progress.",
+          "displayName" : "Generous Tip",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.v2free.LifeProgress.tip.large",
+      "referenceName" : "Generous Tip",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6740145361",
+    "_billingIssuesEnabled" : false,
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 778651200
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
