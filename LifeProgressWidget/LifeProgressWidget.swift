@@ -59,6 +59,14 @@ private var supportedFamilies: [WidgetFamily] {
     return families
 }
 
+private var weekSupportedFamilies: [WidgetFamily] {
+    var families: [WidgetFamily] = [.systemLarge, .systemExtraLarge]
+    if #available(iOSApplicationExtension 27.0, *) {
+        families.append(.systemExtraLargePortrait)
+    }
+    return families
+}
+
 struct YearProgressWidgetEntryView: View {
     var entry: Provider.Entry
 
@@ -83,6 +91,22 @@ struct MonthProgressWidgetEntryView: View {
             let size = geometry.size
             if size.height > 0 {
                 MonthProgressView(width: size.width, height: size.height, events: entry.events, isWidget: true)
+                    .frame(width: size.width, height: size.height)
+            } else {
+                Text(entry.date, style: .time)
+            }
+        }
+    }
+}
+
+struct WeekProgressWidgetEntryView: View {
+    var entry: Provider.Entry
+
+    var body: some View {
+        GeometryReader { geometry in
+            let size = geometry.size
+            if size.height > 0 {
+                WeekProgressView(width: size.width, height: size.height, events: entry.events, isWidget: true)
                     .frame(width: size.width, height: size.height)
             } else {
                 Text(entry.date, style: .time)
@@ -117,6 +141,19 @@ struct MonthProgressWidget: Widget {
     }
 }
 
+struct WeekProgressWidget: Widget {
+    let kind: String = "com.v2free.LifeProgress.WeekProgressWidget"
+
+    var body: some WidgetConfiguration {
+        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+            WeekProgressWidgetEntryView(entry: entry)
+                .containerBackground(Color(uiColor: .systemBackground), for: .widget)
+        }.configurationDisplayName("Week Progress")
+        .description("Shows the progress of life by week")
+        .supportedFamilies(weekSupportedFamilies)
+    }
+}
+
 extension ConfigurationAppIntent {
     fileprivate static var IntentConfig: ConfigurationAppIntent {
         ConfigurationAppIntent()
@@ -131,6 +168,12 @@ extension ConfigurationAppIntent {
 
 #Preview(as: .systemLarge) {
     MonthProgressWidget()
+} timeline: {
+    widgetEntry(date: .now, configuration: .IntentConfig)
+}
+
+#Preview(as: .systemExtraLarge) {
+    WeekProgressWidget()
 } timeline: {
     widgetEntry(date: .now, configuration: .IntentConfig)
 }
