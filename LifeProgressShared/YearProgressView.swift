@@ -63,7 +63,8 @@ public struct YearProgressView: View {
                 let originX = (size.width - gridW) / 2
                 let originY = (size.height - gridH) / 2
                 for index in 0..<yearsInLife {
-                    let eventColor = (eventMap[index] ?? []).first.map { Color(hex: $0.colorHex) }
+                    let blockEvents = eventMap[index] ?? []
+                    let eventColor = blockEvents.first.map { Color(hex: $0.colorHex) }
                     let baseLived = eventColor ?? livedColor
                     let baseUnlived = eventColor?.opacity(0.4) ?? unlivedColor
                     let rect = CGRect(x: originX + CGFloat(index % cols) * (cell + spacing), y: originY + CGFloat(index / cols) * (cell + spacing), width: cell, height: cell)
@@ -74,10 +75,8 @@ public struct YearProgressView: View {
                         let filled = CGRect(x: rect.minX, y: rect.maxY - cell * progressRatio, width: cell, height: cell * progressRatio)
                         context.fill(Path(roundedRect: filled, cornerRadius: corner), with: .color(baseLived))
                     }
-                    if eventColor != nil {
-                        let dotR = max(1.5, cell / 8)
-                        let dot = CGRect(x: rect.midX - dotR, y: rect.maxY - dotR * 2 - 2, width: dotR * 2, height: dotR * 2)
-                        context.fill(Path(ellipseIn: dot), with: .color(.white))
+                    if let theme = blockEvents.lazy.compactMap(\.eventTheme).first {
+                        drawThemeSymbol(theme, in: context, at: rect, size: cell * 0.6, tint: index < yearsLived ? .white : UIColor(baseLived))
                     }
                 }
             }
@@ -92,6 +91,7 @@ public struct YearProgressView: View {
                     let eventColor = blockEvents.first.map { Color(hex: $0.colorHex) }
                     let baseLived = eventColor ?? livedColor
                     let baseUnlived = eventColor?.opacity(0.4) ?? unlivedColor
+                    let theme = blockEvents.lazy.compactMap(\.eventTheme).first
 
                     ZStack(alignment: .bottom) {
                         RoundedRectangle(cornerRadius: 4)
@@ -105,17 +105,12 @@ public struct YearProgressView: View {
                                 .fill(baseLived)
                                 .frame(width: blockWidth, height: filledHeight)
                         }
-
-                        if !blockEvents.isEmpty {
-                            Circle()
-                                .fill(Color.white)
-                                .frame(width: 5, height: 5)
-                                .overlay {
-                                    Circle()
-                                        .fill(eventColor ?? livedColor)
-                                        .frame(width: 3, height: 3)
-                                }
-                                .offset(y: -3)
+                    }
+                    .overlay {
+                        if let theme {
+                            Image(systemName: theme.resolvedSymbolName)
+                                .font(.system(size: blockWidth * 0.55, weight: .bold))
+                                .foregroundStyle(index < yearsLived ? .white : baseLived)
                         }
                     }
                     .shadow(color: index < yearsLived ? baseLived.opacity(0.3) : .clear, radius: 2, x: 0, y: 1)

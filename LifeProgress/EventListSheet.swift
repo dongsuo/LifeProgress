@@ -62,6 +62,13 @@ struct EventRow: View {
             Circle()
                 .fill(Color(hex: event.colorHex))
                 .frame(width: 14, height: 14)
+                .overlay {
+                    if let theme = event.eventTheme {
+                        Image(systemName: theme.resolvedSymbolName)
+                            .font(.system(size: 8, weight: .bold))
+                            .foregroundStyle(.white)
+                    }
+                }
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(event.title)

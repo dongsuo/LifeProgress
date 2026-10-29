@@ -50,6 +50,9 @@
             ReferencedContainer = "container:LifeProgress.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../../../LifeProgress.storekit">
+      </StoreKitConfigurationFileReference>
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCWidgetKind"

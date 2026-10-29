@@ -76,7 +76,8 @@ public struct MonthProgressView: View {
                 let gridH = cellH * CGFloat(rows) + spacing * CGFloat(rows - 1)
                 let originY = (size.height - gridH) / 2
                 for index in 0..<monthsInLife {
-                    let eventColor = (eventMap[index] ?? []).first.map { Color(hex: $0.colorHex) }
+                    let blockEvents = eventMap[index] ?? []
+                    let eventColor = blockEvents.first.map { Color(hex: $0.colorHex) }
                     let baseLived = eventColor ?? livedColor
                     let baseUnlived = eventColor?.opacity(0.4) ?? unlivedColor
                     let col = CGFloat(index % cols)
@@ -90,10 +91,8 @@ public struct MonthProgressView: View {
                         let filled = CGRect(x: rect.minX, y: rect.maxY - cellH * progressRatio, width: cellW, height: cellH * progressRatio)
                         context.fill(Path(roundedRect: filled, cornerRadius: corner), with: .color(baseLived))
                     }
-                    if eventColor != nil {
-                        let dotR = max(1, min(cellW, cellH) / 4)
-                        let dot = CGRect(x: rect.midX - dotR, y: rect.maxY - dotR * 2 - 1, width: dotR * 2, height: dotR * 2)
-                        context.fill(Path(ellipseIn: dot), with: .color(.white))
+                    if let theme = blockEvents.lazy.compactMap(\.eventTheme).first {
+                        drawThemeSymbol(theme, in: context, at: rect, size: min(cellW, cellH) * 0.8, tint: index < monthsLived ? .white : UIColor(baseLived))
                     }
                 }
             }
@@ -108,6 +107,7 @@ public struct MonthProgressView: View {
                     let eventColor = blockEvents.first.map { Color(hex: $0.colorHex) }
                     let baseLived = eventColor ?? livedColor
                     let baseUnlived = eventColor?.opacity(0.4) ?? unlivedColor
+                    let theme = blockEvents.lazy.compactMap(\.eventTheme).first
 
                     ZStack(alignment: .bottom) {
                         RoundedRectangle(cornerRadius: 2)
@@ -122,17 +122,12 @@ public struct MonthProgressView: View {
                                 .fill(baseLived)
                                 .frame(width: blockWidth, height: filledHeight)
                         }
-
-                        if !blockEvents.isEmpty {
-                            Circle()
-                                .fill(Color.white)
-                                .frame(width: 3, height: 3)
-                                .overlay {
-                                    Circle()
-                                        .fill(eventColor ?? livedColor)
-                                        .frame(width: 2, height: 2)
-                                }
-                                .offset(y: -1)
+                    }
+                    .overlay {
+                        if let theme {
+                            Image(systemName: theme.resolvedSymbolName)
+                                .font(.system(size: min(blockWidth, blockHeight) * 0.8, weight: .bold))
+                                .foregroundStyle(index < monthsLived ? .white : baseLived)
                         }
                     }
                     .shadow(color: index < monthsLived ? (eventColor ?? livedColor).opacity(0.3) : .clear, radius: 1, x: 0, y: 0.5)

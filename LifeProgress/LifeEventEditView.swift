@@ -54,6 +54,14 @@ struct LifeEventEditView: View {
             Form {
                 Section(header: Text("Title")) {
                     TextField("e.g. College, Graduation, Wedding...", text: $title)
+                    if let theme = EventTheme.match(title: title) {
+                        HStack(spacing: 6) {
+                            Image(systemName: theme.resolvedSymbolName)
+                            Text("Special icon on your life grid")
+                        }
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    }
                 }
 
                 Section(header: Text("Date")) {

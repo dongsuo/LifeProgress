@@ -51,6 +51,22 @@ struct widgetEntry: TimelineEntry {
     var events: [LifeEvent] = []
 }
 
+private var supportedFamilies: [WidgetFamily] {
+    var families: [WidgetFamily] = [.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge]
+    if #available(iOSApplicationExtension 27.0, *) {
+        families.append(.systemExtraLargePortrait)
+    }
+    return families
+}
+
+private var weekSupportedFamilies: [WidgetFamily] {
+    var families: [WidgetFamily] = [.systemLarge, .systemExtraLarge]
+    if #available(iOSApplicationExtension 27.0, *) {
+        families.append(.systemExtraLargePortrait)
+    }
+    return families
+}
+
 struct YearProgressWidgetEntryView: View {
     var entry: Provider.Entry
 
@@ -83,6 +99,22 @@ struct MonthProgressWidgetEntryView: View {
     }
 }
 
+struct WeekProgressWidgetEntryView: View {
+    var entry: Provider.Entry
+
+    var body: some View {
+        GeometryReader { geometry in
+            let size = geometry.size
+            if size.height > 0 {
+                WeekProgressView(width: size.width, height: size.height, events: entry.events, isWidget: true)
+                    .frame(width: size.width, height: size.height)
+            } else {
+                Text(entry.date, style: .time)
+            }
+        }
+    }
+}
+
 struct YearProgressWidget: Widget {
     let kind: String = "com.v2free.LifeProgress.YearProgressWidget"
 
@@ -92,7 +124,7 @@ struct YearProgressWidget: Widget {
                 .containerBackground(Color(uiColor: .systemBackground), for: .widget)
         }.configurationDisplayName("Year Progress")
         .description("Shows the progress of life by year")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
+        .supportedFamilies(supportedFamilies)
     }
 }
 
@@ -105,7 +137,20 @@ struct MonthProgressWidget: Widget {
                 .containerBackground(Color(uiColor: .systemBackground), for: .widget)
         }.configurationDisplayName("Month Progress")
         .description("Shows the progress of life by month")
-        .supportedFamilies([.systemSmall, .systemMedium, .systemLarge, .systemExtraLarge])
+        .supportedFamilies(supportedFamilies)
+    }
+}
+
+struct WeekProgressWidget: Widget {
+    let kind: String = "com.v2free.LifeProgress.WeekProgressWidget"
+
+    var body: some WidgetConfiguration {
+        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
+            WeekProgressWidgetEntryView(entry: entry)
+                .containerBackground(Color(uiColor: .systemBackground), for: .widget)
+        }.configurationDisplayName("Week Progress")
+        .description("Shows the progress of life by week")
+        .supportedFamilies(weekSupportedFamilies)
     }
 }
 
@@ -123,6 +168,12 @@ extension ConfigurationAppIntent {
 
 #Preview(as: .systemLarge) {
     MonthProgressWidget()
+} timeline: {
+    widgetEntry(date: .now, configuration: .IntentConfig)
+}
+
+#Preview(as: .systemExtraLarge) {
+    WeekProgressWidget()
 } timeline: {
     widgetEntry(date: .now, configuration: .IntentConfig)
 }
